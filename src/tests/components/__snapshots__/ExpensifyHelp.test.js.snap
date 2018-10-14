@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Expensify Help Page Component 1`] = `
+<div>
+  <h3>
+    Welcome to the help page
+  </h3>
+</div>
+`;

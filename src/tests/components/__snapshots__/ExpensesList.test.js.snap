@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Expense List with NO expenses 1`] = `<div />`;
+
+exports[`Testing Expense List with expenses 1`] = `
+<div>
+  <ExpenseListItem
+    amount={2000}
+    createdAt={0}
+    description="Bought Gas"
+    id={1}
+    key="1"
+    note="Getting expensive"
+  />
+  <ExpenseListItem
+    amount={3500}
+    createdAt={259200000}
+    description="Electricity"
+    id={2}
+    key="2"
+    note="October month"
+  />
+  <ExpenseListItem
+    amount={100}
+    createdAt={432000000}
+    description="Phone Bill"
+    id={3}
+    key="3"
+    note="YOLO"
+  />
+</div>
+`;

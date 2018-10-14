@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expensify Add Page snapshot 1`] = `
+<div>
+  <h3>
+    Welcome to the Add page
+  </h3>
+  <ExpenseForm
+    onSubmit={[Function]}
+  />
+</div>
+`;

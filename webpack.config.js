@@ -1,7 +1,8 @@
 const path = require('path');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => {
+  const productionMode = env==='production';
   return {
     entry: './src/app.js',
     output: {
@@ -16,13 +17,16 @@ module.exports = (env) => {
       }, {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          productionMode ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
           'sass-loader'
         ]
       }]
     },
-    devtool: env==='production' ? 'source-map' : 'inline-source-map',
+    plugins: [
+      new MiniCssExtractPlugin({filename: "styles.css"})
+    ],
+    devtool: productionMode ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true

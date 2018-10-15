@@ -11,10 +11,9 @@ exports[`Testing Expense List with expense 1`] = `
     </h3>
   </Link>
   <p>
-    $
-    35.00
-     - 
-    259200000
+    $35.00
+    -
+    January 3rd, 1970
   </p>
 </div>
 `;

@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import { ExpensifyAdd } from '../../components/ExpensifyAdd';
 import expenses from '../dummyData';
 
-let wrapper, history, addExpense;
+let wrapper, history, startAddExpense;
 
 beforeEach(() => {
-    addExpense = jest.fn();
+    startAddExpense = jest.fn();
     history = { push : jest.fn() }
-    wrapper = shallow(<ExpensifyAdd addExpense={addExpense} history={history} />)
+    wrapper = shallow(<ExpensifyAdd startAddExpense={startAddExpense} history={history} />)
 });
 
 
@@ -19,6 +19,6 @@ test("Expensify Add Page snapshot", () => {
 
 test("Expensify onSubmit with data", () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-    expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
+    expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/');
 });

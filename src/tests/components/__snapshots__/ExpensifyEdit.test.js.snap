@@ -8,7 +8,7 @@ exports[`Snapshot for Expnsify Edit Page 1`] = `
         "amount": 3500,
         "createdAt": 259200000,
         "description": "Electricity",
-        "id": 2,
+        "id": "2",
         "note": "October month",
       }
     }

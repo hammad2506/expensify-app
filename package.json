@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --config=jest.config.json",
+    "test": "cross-env NODE_ENV=test jest --watchAll --config=jest.config.json",
     "build:dev": "webpack --mode=development --watch",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --mode=development",
@@ -23,6 +23,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "express": "^4.16.4",
+    "firebase": "^5.5.4",
     "mini-css-extract-plugin": "^0.4.4",
     "moment": "^2.22.2",
     "node-sass": "^4.9.3",
@@ -35,6 +36,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "uuid": "^3.3.2",
@@ -43,10 +45,13 @@
     "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
     "jest": "^23.6.0",
+    "redux-mock-store": "^1.5.3",
     "webpack-dev-server": "^3.1.8"
   }
 }

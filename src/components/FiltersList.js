@@ -66,7 +66,7 @@ const mapDispatchToProps = (dispatch) => ({
     changeText : (text) => dispatch(changeText(text)),
     changeSortBy : (value) => dispatch(changeSortBy(value)),
     changeStartDate : (startDate) => dispatch(changeStartDate(startDate)),
-    changeEndDate : (endDate) => dispatch(changeEndtDate(endDate))
+    changeEndDate : (endDate) => dispatch(changeEndDate(endDate))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FiltersList);

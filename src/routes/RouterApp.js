@@ -6,13 +6,15 @@ import ExpensifyAdd from '../components/ExpensifyAdd';
 import ExpensifyEdit from '../components/ExpensifyEdit';
 import ExpensifyHelp from '../components/ExpensifyHelp';
 import PageNotFound from '../components/PageNotFound';
+import LoginPage from '../components/LoginPage';
 
 const RouterApp = () => (
     <BrowserRouter>
         <div>
             <Header/>
             <Switch>
-                <Route path='/' exact={true} component={ExpensifyDashboard}/>
+                <Route path='/' exact={true} component={LoginPage}/>
+                <Route path='/dashboard' component={ExpensifyDashboard}/>
                 <Route path='/add' component={ExpensifyAdd}/>
                 <Route path='/edit/:id' component={ExpensifyEdit}/>
                 <Route path='/help' component={ExpensifyHelp}/>

@@ -5,9 +5,11 @@ import reduxStore from './store/store';
 import { Provider } from 'react-redux';
 import 'react-dates/lib/css/_datepicker.css';
 import './styles/style.scss';
+import { history } from './routes/RouterApp';
 import database from './firebase/firebase';
 import { startSetExpenses } from './actions/expenses'; 
 import { firebase } from './firebase/firebase';
+import { loginUser, logoutUser } from './actions/auth'
 
 const store = reduxStore();
 
@@ -27,12 +29,18 @@ const APP = (
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+        if(history.location.pathname === '/'){
+            history.push('/dashboard')
+        }
         console.log('logged in')
+        store.dispatch(loginUser(user.uid));
         store.dispatch(startSetExpenses()).then(()=>{
             render();
         });
       } else {
-          console.log('logged out')
-          render();
+        history.push('/');
+        store.dispatch(logoutUser());
+        console.log('logged out')
+        render();
       }
 });

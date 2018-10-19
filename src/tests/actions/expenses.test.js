@@ -1,20 +1,20 @@
 import { addExpense, removeExpense, editExpense, 
         startAddExpense, startSetExpenses, setExpenses, 
-        startRemoveExpense, startEditExpense } from '../../actions/expenses'
+        startRemoveExpense, startEditExpense } from '../../actions/expenses';
 import dummyData from '../dummyData';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import database from '../../firebase/firebase';
-
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 beforeEach((done) => {
+    const uid= 'ABC123def456';
     const expensesData = {};
     dummyData.forEach(({ id, description, note, amount, createdAt }) => {
       expensesData[id] = { description, note, amount, createdAt };
     });
-    database.ref('expenses').set(expensesData).then(() => done());
+    database.ref(`users/${uid}/expenses`).set(expensesData).then(() => done());
   });
 
 
@@ -39,7 +39,8 @@ describe("Contains all Expenses Actions", () => {
     })
 
     test('text expense action START ADD expense', (done) => {
-        const store = mockStore({})
+        const uid = 'ABC123def456';
+        const store = mockStore({auth: {user: uid}});
         store.dispatch(startAddExpense(dummyData[1])).then(() => {
             const actions = store.getActions();
             expect(actions[0]).toEqual({
@@ -62,8 +63,8 @@ describe("Contains all Expenses Actions", () => {
     })
 
     test('text expense action START REMOVE expense', (done) => {
-        
-        const store = mockStore({})
+        const uid = 'ABC123def456';
+        const store = mockStore({auth: {user: uid}});
         const id = dummyData[1].id;
         store.dispatch(startRemoveExpense({ id })).then(() => {
             const actions = store.getActions();
@@ -71,7 +72,7 @@ describe("Contains all Expenses Actions", () => {
                     type: 'REMOVE_EXPENSE',
                     id: dummyData[1].id
                 });
-            return database.ref(`expenses/${id}`).once('value');
+            return database.ref(`users/${uid}/expenses/${id}`).once('value');
         })
         .then((value) => {
             expect(value.val()).toBeFalsy();
@@ -104,7 +105,8 @@ describe("Contains all Expenses Actions", () => {
         const updates= {
             description: 'updated desc'
         }
-        const store = mockStore({});
+        const uid = 'ABC123def456';
+        const store = mockStore({auth: {user: uid}});
         store.dispatch(startEditExpense(id, updates)).then(() => {
             const actions = store.getActions();
             expect(actions[0]).toEqual({
@@ -112,7 +114,7 @@ describe("Contains all Expenses Actions", () => {
                 id,
                 updates
             })
-            return database.ref(`expenses/${id}`).once('value')
+            return database.ref(`users/${uid}/expenses/${id}`).once('value')
         })
         .then(updatedData => {
             expect(updatedData.val().description).toBe('updated desc');
@@ -121,17 +123,17 @@ describe("Contains all Expenses Actions", () => {
     })
 
     test('test START Set expenses from DB', (done) => {
-
-            const store = mockStore({})
-            store.dispatch(startSetExpenses()).then(() => {
-                const actions = store.getActions();
-                expect(actions[0]).toEqual({
-                    type: 'SET_EXPENSES',
-                    expenses: dummyData 
-                });
-                done();
-            })  
-     })
+        const uid = 'ABC123def456';
+        const store = mockStore({auth: {user: uid}});   
+        store.dispatch(startSetExpenses()).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'SET_EXPENSES',
+                expenses: dummyData 
+            });
+            done();
+        })  
+    })
 
      test('test Set expenses from DB', () => {
         const val = setExpenses(dummyData[2]);

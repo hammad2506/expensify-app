@@ -26,11 +26,11 @@ test("Snapshot for Expnsify Edit Page", () => {
 test("Edit expense from expenses Page", () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(startEditExpense).toHaveBeenLastCalledWith(expenses[1].id, expenses[1]);
-    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(history.push).toHaveBeenLastCalledWith('/dashboard');
 });
 
 test("Remove expense from expenses Page", () => {
     wrapper.find('button').simulate('click');
     expect(startRemoveExpense).toHaveBeenLastCalledWith(expenses[1].id);
-    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(history.push).toHaveBeenLastCalledWith('/dashboard');
 });

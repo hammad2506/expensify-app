@@ -7,13 +7,12 @@ export const LoginPage = ({ loginUser }) => {
     const onLoginClick = () => {
         loginUser();
     }
-
+    
     return(
         <div>
             <button onClick={onLoginClick}>Login</button>
         </div>
     );
-
 }
 
 const mapDispatchToProps = (dispatch) => ({

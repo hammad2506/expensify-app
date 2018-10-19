@@ -20,5 +20,5 @@ test("Expensify Add Page snapshot", () => {
 test("Expensify onSubmit with data", () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
-    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(history.push).toHaveBeenLastCalledWith('/dashboard');
 });

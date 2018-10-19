@@ -2,6 +2,11 @@
 
 exports[`Testing Header Component 1`] = `
 <div>
+  <button
+    onClick={[Function]}
+  >
+    Log out 
+  </button>
   <NavLink
     activeClassName="activeLink"
     aria-current="page"

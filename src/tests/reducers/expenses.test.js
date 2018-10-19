@@ -1,25 +1,13 @@
 import expensesReducer from '../../reducers/expenses';
 import moment from 'moment';
 import dummyData from '../dummyData';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import database from '../../firebase/firebase';
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-
-beforeAll(()=>{
-    database.ref().set({});
-});
-
-
 
 describe("Expenses Reducers Test Cases", function(){
     
     test('Expense reducer initialization', () => {
         const val = expensesReducer(undefined, {type: '@@INIT'});
         expect(val).toEqual([])
-    })
+    });
     
     test('Add expense', () => {
         const newExpense = {
@@ -33,7 +21,7 @@ describe("Expenses Reducers Test Cases", function(){
         expect(val).toEqual(
             [...dummyData, newExpense]
         );
-    })
+    });
     
     test('Edit expense with id match', () => {
         const updates = {
@@ -47,7 +35,7 @@ describe("Expenses Reducers Test Cases", function(){
         expect(val).toEqual(
             [dummyData[0], dummyData[1], updates]
         );
-    })
+    });
     
     test('Edit expense without id match', () => {
         const updates = {
@@ -61,7 +49,7 @@ describe("Expenses Reducers Test Cases", function(){
         expect(val).toEqual(
             [...dummyData]
         );
-    })
+    });
     
     
     test('Remove expense with id match', () => {
@@ -69,7 +57,7 @@ describe("Expenses Reducers Test Cases", function(){
         expect(val).toEqual(
             [dummyData[0], dummyData[2]]
         );
-    })
+    });
     
     
     test('Remove expense with no id match', () => {
@@ -87,4 +75,4 @@ describe("Expenses Reducers Test Cases", function(){
         })
         expect(val).toEqual(expenses);
      });
-})
+});

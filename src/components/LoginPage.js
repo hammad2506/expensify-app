@@ -9,8 +9,13 @@ export const LoginPage = ({ loginUser }) => {
     }
     
     return(
-        <div>
-            <button onClick={onLoginClick}>Login</button>
+        <div className='box-layout'>
+            <div className='box-layout__box'>
+                <h1>Expensify</h1>
+                <p>Take better control of your finances</p>
+                <button className='login-btn' onClick={onLoginClick}><img className='googleimg' src="/images/google-icon.png" alt="Submit"/></button>
+            </div>
+            
         </div>
     );
 }

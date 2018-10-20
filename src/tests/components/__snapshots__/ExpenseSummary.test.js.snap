@@ -1,19 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot of expense summary with 0 expense 1`] = `<div />`;
+exports[`snapshot of expense summary with 0 expense 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <Link
+      className="button page-header__actions"
+      replace={false}
+      to="/add"
+    >
+      Add Expense
+    </Link>
+  </div>
+</div>
+`;
 
 exports[`snapshot of expense summary with 1 expense 1`] = `
-<div>
-  <h2>
-    Viewing 1 expense totalling $200.00
-  </h2>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        1
+      </span>
+       
+      expense
+       totalling 
+      <span>
+        $200.00
+      </span>
+    </h1>
+    <Link
+      className="button page-header__actions"
+      replace={false}
+      to="/add"
+    >
+      Add Expense
+    </Link>
+  </div>
 </div>
 `;
 
 exports[`snapshot of expense summary with multiple expenses 1`] = `
-<div>
-  <h2>
-    Viewing 3 expenses totalling $900.00
-  </h2>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        3
+      </span>
+       
+      expenses
+       totalling 
+      <span>
+        $900.00
+      </span>
+    </h1>
+    <Link
+      className="button page-header__actions"
+      replace={false}
+      to="/add"
+    >
+      Add Expense
+    </Link>
+  </div>
 </div>
 `;

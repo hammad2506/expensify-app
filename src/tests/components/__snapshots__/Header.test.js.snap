@@ -1,33 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Header Component 1`] = `
-<div>
-  <button
-    onClick={[Function]}
+<header
+  className="header"
+>
+  <div
+    className="content-container"
   >
-    Log out 
-  </button>
-  <NavLink
-    activeClassName="activeLink"
-    aria-current="page"
-    exact={true}
-    to="/"
-  >
-    Home
-  </NavLink>
-  <NavLink
-    activeClassName="activeLink"
-    aria-current="page"
-    to="/add"
-  >
-    Add
-  </NavLink>
-  <NavLink
-    activeClassName="activeLink"
-    aria-current="page"
-    to="/help"
-  >
-    Help
-  </NavLink>
-</div>
+    <div
+      className="header__content"
+    >
+      <Link
+        className="header__title"
+        replace={false}
+        to="/dashboard"
+      >
+        <h1>
+          Expensify
+        </h1>
+      </Link>
+      <button
+        className="button button--link"
+        onClick={[Function]}
+      >
+        Log out
+      </button>
+    </div>
+  </div>
+</header>
 `;

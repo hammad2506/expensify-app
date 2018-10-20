@@ -1,11 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should take correct snapshot 1`] = `
-<div>
-  <button
-    onClick={[Function]}
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__box"
   >
-    Login
-  </button>
+    <h1>
+      Expensify
+    </h1>
+    <p>
+      Take better control of your finances
+    </p>
+    <button
+      className="login-btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="Submit"
+        className="googleimg"
+        src="/images/google-icon.png"
+      />
+    </button>
+  </div>
 </div>
 `;

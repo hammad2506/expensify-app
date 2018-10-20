@@ -72,15 +72,16 @@ class ExpenseForm extends React.Component {
 
     render(){
         return(
-            <div>
-                <form onSubmit={this.onFormSubmit}>
+                <form className='form' onSubmit={this.onFormSubmit}>
                     {this.state.error && <p>{this.state.error}</p>}
-                    <input 
-                       type='text' placeholder='description' 
+                    <input
+                        className='text-input' 
+                        type='text' placeholder='Description' 
                         value={this.state.description} onChange={this.onDescriptionChange}
                     />
                     <input 
-                        type='text' placeholder='amount' 
+                        className='text-input'
+                        type='text' placeholder='Amount' 
                         value={this.state.amount} onChange={this.onAmountChange}
                     />
                     <div>
@@ -94,15 +95,17 @@ class ExpenseForm extends React.Component {
                             showDefaultInputIcon={true}
                         />
                     </div>  
-                    <textarea 
-                        placeholder='Please add a note for your expense (optional)' 
+                    <textarea
+                        className='textarea' 
+                        placeholder='Notes' 
                         value={this.state.note} onChange={this.onNoteChange}>
                     </textarea>
-                    <button>
-                    {!this.props.expense ? `Add Expense` : `Update Expense`}
-                    </button>
+                    <div>
+                        <button className='button'>
+                            {!this.props.expense ? `Add Expense` : `Save Expense`}
+                        </button>
+                    </div>
                 </form>
-            </div>
         );
     }
 }

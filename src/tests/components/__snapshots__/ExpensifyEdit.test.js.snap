@@ -2,24 +2,42 @@
 
 exports[`Snapshot for Expnsify Edit Page 1`] = `
 <div>
-  <ExpenseForm
-    expense={
-      Object {
-        "amount": 3500,
-        "createdAt": 259200000,
-        "description": "Electricity",
-        "id": "2",
-        "note": "October month",
-      }
-    }
-    onSubmit={[Function]}
-  />
-  <div>
-    <button
-      onClick={[Function]}
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container"
     >
-       Delete 
-    </button>
+      <h1
+        className="page-header__title"
+      >
+        Edit Expense
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <ExpenseForm
+      expense={
+        Object {
+          "amount": 3500,
+          "createdAt": 259200000,
+          "description": "Electricity",
+          "id": "2",
+          "note": "October month",
+        }
+      }
+      onSubmit={[Function]}
+    />
+    <div>
+      <button
+        className="button button-alternate"
+        onClick={[Function]}
+      >
+        Delete Expense
+      </button>
+    </div>
   </div>
 </div>
 `;

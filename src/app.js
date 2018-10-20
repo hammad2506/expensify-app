@@ -17,7 +17,6 @@ const store = reduxStore();
 
 let isRendered = false;
 const render = () => {
-    console.log("function render called");
     if(!isRendered){
         ReactDOM.render(APP, document.getElementById('root'));
         isRendered = true;
@@ -37,7 +36,6 @@ firebase.auth().onAuthStateChanged((user) => {
         if(history.location.pathname === '/'){
             history.push('/dashboard')
         }
-        console.log('logged in')
         store.dispatch(loginUser(user.uid));
         store.dispatch(startSetExpenses()).then(()=>{
             render();
@@ -45,7 +43,6 @@ firebase.auth().onAuthStateChanged((user) => {
       } else {
         history.push('/');
         store.dispatch(logoutUser());
-        console.log('logged out')
         render();
       }
 });

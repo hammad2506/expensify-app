@@ -73,7 +73,7 @@ class ExpenseForm extends React.Component {
     render(){
         return(
                 <form className='form' onSubmit={this.onFormSubmit}>
-                    {this.state.error && <p>{this.state.error}</p>}
+                    {this.state.error && <p className='form__error'>{this.state.error}</p>}
                     <input
                         className='text-input' 
                         type='text' placeholder='Description' 

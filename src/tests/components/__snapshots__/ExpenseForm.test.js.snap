@@ -1067,7 +1067,9 @@ exports[`Test form for invalid submission 2`] = `
   className="form"
   onSubmit={[Function]}
 >
-  <p>
+  <p
+    className="form__error"
+  >
     Please enter the description and amount
   </p>
   <input

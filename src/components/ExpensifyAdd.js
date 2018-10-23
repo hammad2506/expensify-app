@@ -18,7 +18,7 @@ export class ExpensifyAdd extends React.Component {
                         <h1 className= 'page-header__title'>Add Expense</h1>
                     </div>
             </div>
-                <div class='content-container'>
+                <div className='content-container'>
                     <ExpenseForm onSubmit={this.onSubmit} />
                 </div>
             </div>
